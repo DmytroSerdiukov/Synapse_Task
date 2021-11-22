@@ -11,7 +11,8 @@ const AuthMarkup: React.FC = () => {
         marginTop: 100,
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center"
+        justifyContent: "center",
+        alignItems: 'center'
     }}>
         <h1>Sign In</h1>
         <Field placeholder="Email" type="text" />

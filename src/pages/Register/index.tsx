@@ -9,7 +9,9 @@ const RegisterMarkup: React.FC = () => {
     return <div style={{
         marginTop: 100,
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: 'center'
     }}>
         <h1>Sign Up</h1>
         <Field placeholder="Email" type="text" />
