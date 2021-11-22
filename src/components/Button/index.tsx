@@ -7,19 +7,30 @@ interface IButton {
     height: number,
     backgroundColor: string,
     title: string,
+    padding?: string,
+    margin?: string
     callback?(): void
 }
 
 const Button: React.FC<IButton> =
     (
-        { width, height, backgroundColor, title, callback }
+        { width, height, backgroundColor, title, padding="", margin="", callback }
     ) => {
         return <button
             type="submit"
             onClick={callback}
-            style={{ ...styles.container, ...{ width: width, height: height, backgroundColor: backgroundColor }}}
+            style={{
+                ...styles.container,
+                ...{
+                    width: width,
+                    height: height,
+                    backgroundColor: backgroundColor,
+                    padding: padding,
+                    margin: margin
+                }
+            }}
         >
-    { title }
+            {title}
         </button >
     }
 
