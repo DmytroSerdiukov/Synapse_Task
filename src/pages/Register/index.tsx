@@ -2,10 +2,12 @@
 
 
 import React from 'react'
+import { useNavigate } from 'react-router';
 import Button from '../../components/form/Button';
 import Field from '../../components/form/Field';
 
 const RegisterMarkup: React.FC = () => {
+    const navigate = useNavigate()
     return <div style={{
         marginTop: 100,
         display: "flex",
@@ -17,7 +19,7 @@ const RegisterMarkup: React.FC = () => {
         <Field placeholder="Email" type="text" />
         <Field placeholder="Name" type="text" />
         <Field placeholder="Password" type="password" />
-        <Button title="Sign Up" />
+        <Button title="Sign Up" callback={() => navigate('/home')} />
     </div>
 }
 
