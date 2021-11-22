@@ -3,7 +3,15 @@ import { useNavigate } from 'react-router'
 
 const PopUpMarkup: React.FC = () => {
     const navigate = useNavigate()
-    return <div style={{
+    return <div style={styles.container}>
+        <span onClick={() => navigate(-1)}>GO BACK!</span>
+    </div>
+}
+
+export default PopUpMarkup
+
+const styles = {
+    container: {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -12,9 +20,5 @@ const PopUpMarkup: React.FC = () => {
         backgroundColor: "red",
         margin: "0 auto",
         marginTop: "100px"
-    }}>
-        <span onClick={() => navigate(-1)}>GO BACK!</span>
-    </div>
+    }
 }
-
-export default PopUpMarkup
