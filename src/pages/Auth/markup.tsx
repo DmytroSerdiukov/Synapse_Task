@@ -3,9 +3,13 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
 import { Field, reduxForm } from 'redux-form';
 
+import { RootState } from '../../redux';
 import Button from '../../components/Button';
 import { checkEmail, length } from '../../helpers/validators';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import {CustomField, CustomPasswordField } from '../../components/form/Field';
+import { Link } from 'react-router-dom';
+
 
 const Form = (props: any) => {
     const [visible, setVisible] = useState(false)
@@ -37,11 +41,15 @@ const Form = (props: any) => {
     </form>
 }
 
-const AuthMarkup: React.FC = () => {
+const AuthMarkup: React.FC = (props: any) => {
+    const authStatus = useAppSelector( (state: RootState) => state.user.authStatus);
+    const dispatch = useAppDispatch()
     const navigate = useNavigate()
+
     const submit = (values: any) => {
-        console.log(values)
-        setTimeout( () => navigate('/home'), 2500)
+        dispatch({type: "user/LOGIN"})
+        if(authStatus)
+            setTimeout( () => navigate('/home'), 1000)
     }
     return <div style={{
         marginTop: 100,
@@ -52,6 +60,8 @@ const AuthMarkup: React.FC = () => {
     }}>
         <h1>Sign In</h1>
         <SignInForm onSubmit={submit} />
+        <Link style={{marginTop: "30px", textDecoration: "none", color:"black"}} to='/register'>Don't have an account?</Link>
+
     </div>
 }
 

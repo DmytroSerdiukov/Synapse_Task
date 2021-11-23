@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router';
 import Button from '../../components/Button';
 import { checkEmail, checkName, length } from '../../helpers/validators';
 import { CustomField, CustomPasswordField } from '../../components/form/Field';
+import { Link } from 'react-router-dom';
 
 
 const Form = (props: any) => {
@@ -44,6 +45,7 @@ const Form = (props: any) => {
             backgroundColor={"#5897FC"}
             title="Sign In"
         />
+
     </form>
 }
 
@@ -64,6 +66,8 @@ const RegisterMarkup: React.FC = () => {
     }}>
         <h1>Sign Up</h1>
         <SignUpForm onSubmit={submit} />
+        <Link style={{marginTop: "30px", textDecoration: "none", color:"black"}} to='/auth'>Already have an account?</Link>
+
     </div>
 }
 
