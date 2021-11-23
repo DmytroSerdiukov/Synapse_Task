@@ -20,7 +20,7 @@ const LoggedInBar = () => {
         color: "white",
         fontSize: "1.125rem"
     }}>
-        Hello, {user}
+        Hello, {user === "" ? 'guest' : user}
     </div>
 }
 
