@@ -3,6 +3,8 @@ import Button from '../../components/Button'
 
 import { useNavigate } from 'react-router'
 import Movies from '../../components/Carousel'
+import { useAppSelector } from '../../redux/hooks'
+import { RootState } from '../../redux'
 
 
 const LoggedInBar = () => {
@@ -54,10 +56,10 @@ const UnloggedInBar = () => {
 
 
 const HomeMarkup: React.FC = () => {
-    const loggedIn = false
+    const authStatus = useAppSelector( (state: RootState) => state.user.authStatus);
     return <div>
         {
-            loggedIn ? <LoggedInBar /> : <UnloggedInBar />
+            authStatus ? <LoggedInBar /> : <UnloggedInBar />
         }
         <Movies />
     </div>

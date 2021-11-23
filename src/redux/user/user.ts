@@ -17,10 +17,10 @@ let initState = {
 const userReducer = (state: IState = initState, action: IAction) => {
     switch (action.type) {
         case LOGIN: {
-            return state
+            return {...state, authStatus: true}
         }
         case REGISTER: {
-            return state
+            return {...state, authStatus: true}
         }
         case LOGOUT: {
             return state
