@@ -1,9 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { reducer as reducerForm } from 'redux-form';
+
 import userReducer from './user/user'
 
 export const store = configureStore({
     reducer: {
-        user: userReducer
+        user: userReducer,
+        form: reducerForm
     }
 })
 

@@ -1,15 +1,20 @@
 import React from 'react'
+import { submit } from 'redux-form'
+
+
 
 interface IButton {
+    type: string,
     title: string,
     callback?(): void
 }
 
-const Button: React.FC<IButton> = ({ title, callback }) => {
+const Button: React.FC<IButton> = ({ type, title, callback }) => {
     return <button
-        type="submit"
+        type={"submit"}
         onClick={callback}
-        style={styles.container}>
+        style={styles.container}
+    >
         {title}
     </button>
 }

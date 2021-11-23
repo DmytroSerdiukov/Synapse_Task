@@ -16,10 +16,10 @@ const RegisterMarkup: React.FC = () => {
         alignItems: 'center'
     }}>
         <h1>Sign Up</h1>
-        <Field placeholder="Email" type="text" />
+        {/* <Field placeholder="Email" type="text" />
         <Field placeholder="Name" type="text" />
         <Field placeholder="Password" type="password" />
-        <Button title="Sign Up" callback={() => navigate('/home')} />
+        <Button title="Sign Up" callback={() => navigate('/home')} /> */}
     </div>
 }
 
