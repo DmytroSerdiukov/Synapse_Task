@@ -2,11 +2,10 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
 import { Field, reduxForm } from 'redux-form';
-import Button from '../../components/Button';
-import {CustomField, CustomPasswordField } from '../../components/form/Field';
-import { checkEmail, length } from '../../helpers/validators';
-// import Field from '../../components/form/Field';
 
+import Button from '../../components/Button';
+import { checkEmail, length } from '../../helpers/validators';
+import {CustomField, CustomPasswordField } from '../../components/form/Field';
 
 const Form = (props: any) => {
     const [visible, setVisible] = useState(false)
@@ -40,7 +39,6 @@ const Form = (props: any) => {
 
 const AuthMarkup: React.FC = () => {
     const navigate = useNavigate()
-    // const navigate = useNavigate()
     const submit = (values: any) => {
         console.log(values)
         setTimeout( () => navigate('/home'), 2500)
@@ -54,9 +52,6 @@ const AuthMarkup: React.FC = () => {
     }}>
         <h1>Sign In</h1>
         <SignInForm onSubmit={submit} />
-        {/* <Field placeholder="Email" type="text" />
-        <Field placeholder="Password" type="password" /> */}
-        {/* <Button title="Sign In" callback={() => navigate('/home')} /> */}
     </div>
 }
 
