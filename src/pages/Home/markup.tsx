@@ -8,6 +8,8 @@ import { RootState } from '../../redux'
 
 
 const LoggedInBar = () => {
+    const user = useAppSelector( (state: RootState) => state.user.user);
+
     return <div style={{
         padding: "15px",
         backgroundColor: "black",
@@ -18,7 +20,7 @@ const LoggedInBar = () => {
         color: "white",
         fontSize: "1.125rem"
     }}>
-        Hello, user
+        Hello, {user}
     </div>
 }
 

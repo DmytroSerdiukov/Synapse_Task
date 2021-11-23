@@ -9,6 +9,8 @@ import Button from '../../components/Button';
 import { checkEmail, checkName, length } from '../../helpers/validators';
 import { CustomField, CustomPasswordField } from '../../components/form/Field';
 import { Link } from 'react-router-dom';
+import { useAppDispatch } from '../../redux/hooks';
+import { userInfo } from 'os';
 
 
 const Form = (props: any) => {
@@ -51,9 +53,12 @@ const Form = (props: any) => {
 
 const RegisterMarkup: React.FC = () => {
     const navigate = useNavigate()
+    const dispatch = useAppDispatch()
 
     const submit = (values: any) => {
         console.log(values)
+        dispatch({type: 'user/SET_USER', payload: values.name})
+        dispatch({type: 'user/LOGIN'})    
         setTimeout(() => navigate('/home'), 1500)
     }
 

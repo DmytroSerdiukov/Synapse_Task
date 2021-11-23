@@ -1,7 +1,8 @@
-import { LOGIN, LOGOUT, REGISTER } from "./types"
+import { LOGIN, LOGOUT, REGISTER, SET_USER } from "./types"
 
 interface IState {
-    authStatus: boolean
+    authStatus: boolean,
+    user: string
 }
 
 interface IAction {
@@ -10,7 +11,8 @@ interface IAction {
 }
 
 let initState = {
-    authStatus: false
+    authStatus: false,
+    user: ''
 }
 
 
@@ -24,6 +26,9 @@ const userReducer = (state: IState = initState, action: IAction) => {
         }
         case LOGOUT: {
             return state
+        }
+        case SET_USER: {
+            return {...state, user: action.payload}
         }
         default:
             return state
