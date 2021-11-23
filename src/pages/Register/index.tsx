@@ -3,8 +3,6 @@
 
 import React from 'react'
 import { useNavigate } from 'react-router';
-import Button from '../../components/form/Button';
-import Field from '../../components/form/Field';
 
 const RegisterMarkup: React.FC = () => {
     const navigate = useNavigate()

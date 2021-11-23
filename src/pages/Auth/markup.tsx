@@ -1,15 +1,15 @@
 
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
 import { Field, reduxForm } from 'redux-form';
 import Button from '../../components/Button';
-import CustomField from '../../components/form/Field';
+import {CustomField, CustomPasswordField } from '../../components/form/Field';
 import { checkEmail, length } from '../../helpers/validators';
 // import Field from '../../components/form/Field';
 
 
 const Form = (props: any) => {
-    
+    const [visible, setVisible] = useState(false)
     const { handleSubmit } = props
     return <form onSubmit={handleSubmit}>
         <Field
@@ -20,21 +20,21 @@ const Form = (props: any) => {
             validate={[checkEmail]}
         />
         <Field
+            visible={visible}
+            setVisible={setVisible}
             name={'password'}
-            type="password"
+            type={visible ? "text":"password"}
             placeholder="Password"
-            component={CustomField}
+            component={CustomPasswordField}
             validate={[length]}
         />
         <Button
             margin={"0px 5px"}
-            width={100}
-            height={50}
+            width={350}
+            height={80}
             backgroundColor={"#5897FC"}
             title="Sign In"
-            // callback={() => navigate('/home')}
         />
-        {/* <Button type='submit' title="Sign In" callback={() => navigate('/home')} /> */}
     </form>
 }
 
