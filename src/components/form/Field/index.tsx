@@ -45,13 +45,13 @@ export const CustomPasswordField: React.FC<IField> = ({ input, type, placeholder
         width: "350px"
     }}>
         <div style={{
-                position: "relative",
-            }}>
+            position: "relative",
+        }}>
             <input
                 {...input}
                 style={styles}
                 placeholder={placeholder}
-                type={visible ? "text": "password"}
+                type={visible ? "text" : "password"}
             />
             <div style={{
                 top: "35px",
@@ -60,14 +60,15 @@ export const CustomPasswordField: React.FC<IField> = ({ input, type, placeholder
                 zIndex: 1
 
             }}>
-            {visible ?
-                <i onClick={() => setVisible(!visible)}>
-                    <VisibilityOffIcon />
-                </i>
-                : <i onClick={() => setVisible(!visible)}>
-                    <VisibilityIcon />
-                </i>
-            }
+                {visible ?
+                    <i onClick={() => setVisible(!visible)}>
+                        <VisibilityIcon />
+                    </i>
+                    :
+                    <i onClick={() => setVisible(!visible)}>
+                        <VisibilityOffIcon />
+                    </i>
+                }
             </div>
         </div>
 
