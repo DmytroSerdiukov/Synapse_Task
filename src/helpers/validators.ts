@@ -1,5 +1,10 @@
 
 
+export const checkName = (value: string) => {
+    if (!value)
+        return "Name is required"
+}
+
 export const length = (value: string) => {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{6,15}$/
     if (!value)
