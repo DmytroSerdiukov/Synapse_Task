@@ -32,17 +32,29 @@ const Form = (props: any) => {
             visible={visible}
             setVisible={setVisible}
             name={'password'}
-            type={visible ? "text":"password"}
+            type={visible ? "text" : "password"}
             placeholder="Password"
             component={CustomPasswordField}
             validate={[length]}
         />
-
+        <Button
+            margin={"0px 5px"}
+            width={350}
+            height={80}
+            backgroundColor={"#5897FC"}
+            title="Sign In"
+        />
     </form>
 }
 
 const RegisterMarkup: React.FC = () => {
     const navigate = useNavigate()
+
+    const submit = (values: any) => {
+        console.log(values)
+        setTimeout(() => navigate('/home'), 1500)
+    }
+
     return <div style={{
         marginTop: 100,
         display: "flex",
@@ -51,10 +63,10 @@ const RegisterMarkup: React.FC = () => {
         alignItems: 'center'
     }}>
         <h1>Sign Up</h1>
-        <SignUpForm />
+        <SignUpForm onSubmit={submit} />
     </div>
 }
 
-const SignUpForm = reduxForm({form: "signup"})(Form)
+const SignUpForm = reduxForm({ form: "signup" })(Form)
 
 export default RegisterMarkup
