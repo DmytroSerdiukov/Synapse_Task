@@ -22,8 +22,8 @@ const Card: React.FC<ICard> = ({ id, title, genre, director }) => {
             color: "#fff"
         }}>
         <span>{title}</span>
-        <span>{genre}</span>
-        <span>{director}</span>
+        {/* <span>{genre}</span>
+        <span>{director}</span> */}
     </div>
 }
 
