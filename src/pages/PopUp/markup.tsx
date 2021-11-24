@@ -1,10 +1,17 @@
 import React from 'react'
-import { useNavigate } from 'react-router'
+import JsonData from '../../data/imdb.json'
+import { useNavigate, useParams } from 'react-router'
 
-const PopUpMarkup: React.FC = () => {
+interface IPopUp {
+    animate: any
+}
+
+const PopUpMarkup: React.FC<IPopUp> = ({animate}) => {
+    let params = useParams()
+    const item = JsonData.filter(el => el.id === params.id)
     const navigate = useNavigate()
     return <div style={styles.container}>
-        <span onClick={() => navigate(-1)}>GO BACK!</span>
+        <span onClick={() => navigate(-1)}>{item[0].title}</span>
     </div>
 }
 

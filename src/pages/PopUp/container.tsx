@@ -1,8 +1,12 @@
 import React from 'react'
 import PopUpMarkup from './markup'
 
-const PopUpContainer: React.FC = () => {
-    return <PopUpMarkup />
+
+interface IPopUp {
+    animate: any
+}
+const PopUpContainer: React.FC<IPopUp> = ({ animate }) => {
+    return <PopUpMarkup animate={animate} />
 }
 
 export default PopUpContainer
