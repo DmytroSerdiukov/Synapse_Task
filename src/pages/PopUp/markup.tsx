@@ -7,9 +7,11 @@ interface IPopUp {
 }
 
 const PopUpMarkup: React.FC<IPopUp> = ({ animate }) => {
-    let params = useParams()
-    const { title } = JsonData.filter(el => el.id === params.id)[0]
+    const params = useParams()
     const navigate = useNavigate()
+
+    const { title } = JsonData.filter(el => el.id === params.id)[0]
+
     return <div style={styles.container}>
         <span onClick={() => navigate(-1)}>{title}</span>
     </div>
