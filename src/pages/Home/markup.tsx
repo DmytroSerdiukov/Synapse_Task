@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router'
 import Movies from '../../components/Carousel'
 import { useAppSelector } from '../../redux/hooks'
 import { RootState } from '../../redux'
+import CardsContainer from '../../components/Cards/container'
 
 
 const LoggedInBar = () => {
@@ -64,6 +65,7 @@ const HomeMarkup: React.FC = () => {
             authStatus ? <LoggedInBar /> : <UnloggedInBar />
         }
         <Movies />
+        <CardsContainer />
     </div>
 }
 export default HomeMarkup
