@@ -3,27 +3,38 @@ import { useNavigate } from 'react-router'
 
 interface ICard {
     id: string,
-    genre: string,
     title: string,
-    director: string
+    poster: string
 }
 
-const Card: React.FC<ICard> = ({ id, title, genre, director }) => {
+const Card: React.FC<ICard> = ({ id, title, poster }) => {
     const navigate = useNavigate()
     return <div
         onClick={() => navigate(`/items/${id}`)}
         style={{
             display: "flex",
+            position: "relative",
             flexDirection: "column",
+            justifyContent: 'center',
             width: "350px",
             height: "350px",
             backgroundColor: "red",
             margin: "10px",
-            color: "#fff"
+            color: "#fff",
+
         }}>
-        <span>{title}</span>
-        {/* <span>{genre}</span>
-        <span>{director}</span> */}
+        <img style={{
+            zIndex: 0
+        }} width="350px" height="350px" src={poster} alt="poster" />
+
+        <span style={{
+            position: "absolute",
+            bottom: "5px",
+            fontSize: "28px",
+            fontWeight: "500",
+            zIndex: 10,
+        }}>{title}</span>
+
     </div>
 }
 
