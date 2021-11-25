@@ -27,7 +27,7 @@ const Movie: React.FC<IMovie> = ({ id }) => {
 const Movies: React.FC = () => {
     return < div style={{
         display: "flex",
-        marginTop: "150px",
+        marginTop: "50px",
         justifyContent: "center",
         flexDirection: "row",
     }}>
@@ -35,7 +35,8 @@ const Movies: React.FC = () => {
             JsonData.slice(0, 3).map((el, i) =>
                 <Movie
                     id={el.id}
-                    key={i} />
+                    key={i}
+                />
             )
         }
     </div >
