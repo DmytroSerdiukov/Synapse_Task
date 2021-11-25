@@ -77,6 +77,7 @@ const styles = {
         left: "40px",
         width: "40px",
         height: "30px",
+        padding: "10px",
         backgroundColor: "gray",
         // opacity: 0.5,
         borderRadius: 4

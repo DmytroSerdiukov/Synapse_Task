@@ -4,6 +4,7 @@ import JsonData from '../../data/imdb.json'
 import Card from './Card'
 
 
+
 const CardsMarkup: React.FC = () => {
     return <div style={{
         display: "flex",
@@ -22,6 +23,10 @@ const CardsMarkup: React.FC = () => {
                     id={el.id}
                     title={el.title}
                     poster={el.poster}
+                    genre={el.genre}
+                    director={el.director}
+                    year={el.year}
+                    rating={el.imdbrating}
                 />
             )}
         </div>
