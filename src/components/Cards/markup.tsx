@@ -21,8 +21,7 @@ const CardsMarkup: React.FC = () => {
                     key={i}
                     id={el.id}
                     title={el.title}
-                    genre={el.genre}
-                    director={el.director}
+                    poster={el.poster}
                 />
             )}
         </div>
