@@ -4,22 +4,36 @@ import { useNavigate } from 'react-router'
 
 
 interface IMovie {
-    id: string
+    id: string,
+    title: string,
+    poster: string
 }
 
-const Movie: React.FC<IMovie> = ({ id }) => {
+const Movie: React.FC<IMovie> = ({ id, title, poster }) => {
     const navigate = useNavigate()
     return <div
         onClick={() => navigate(`/items/${id}`)}
         style={{
+            position: "relative",
             width: "350px",
             height: "350px",
             background: "red",
             margin: "10px"
-
-
         }}>
-        {id}
+            <div>
+                <img
+                    width="350px"
+                    height="350px"
+                    src={poster}
+                    alt="poster"
+                />
+            </div>
+            <h1 style={{
+                position: "absolute",
+                bottom: "10px",
+                color: "white",
+                textAlign: "center"
+            }}>{title}</h1>
     </div>
 }
 
@@ -32,10 +46,12 @@ const Movies: React.FC = () => {
         flexDirection: "row",
     }}>
         {
-            JsonData.slice(0, 3).map((el, i) =>
+            JsonData.slice(JsonData.length - 3, JsonData.length).map((el, i) =>
                 <Movie
                     id={el.id}
                     key={i}
+                    poster={el.poster}
+                    title={el.title}
                 />
             )
         }
