@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { WrappedFieldProps } from 'redux-form'
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import styles from './styles.module.css'
 
 interface IInput {
     meta: any,
@@ -13,53 +14,33 @@ interface IInput {
 type IField = WrappedFieldProps & IInput
 
 export const CustomField: React.FC<IField> = ({ input, type, placeholder, meta: { touched, error, warning } }) => (
-    <div style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "350px"
-    }}>
+    <div
+        className={styles.container}>
         <input
             {...input}
-            style={styles}
+            className={styles.input}
             placeholder={placeholder}
             type={type}
         />
-        <div style={{
-            margin: "10px"
-        }}>
-
+        <div
+            className={styles.field_error_info}>
             {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
         </div>
     </div>
 )
 
-
-
-
 export const CustomPasswordField: React.FC<IField> = ({ input, type, placeholder, meta: { touched, error, warning } }) => {
     const [visible, setVisible] = useState(false)
 
-    return <div style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "350px"
-    }}>
-        <div style={{
-            position: "relative",
-        }}>
+    return <div className={styles.container}>
+        <div className={styles.field_wrapper}>
             <input
                 {...input}
-                style={styles}
+                className={styles.input}
                 placeholder={placeholder}
                 type={visible ? "text" : "password"}
             />
-            <div style={{
-                top: "35px",
-                right: "10px",
-                position: "absolute",
-                zIndex: 1
-
-            }}>
+            <div className={styles.password_status_icon}>
                 {visible ?
                     <i onClick={() => setVisible(!visible)}>
                         <VisibilityIcon />
@@ -71,27 +52,10 @@ export const CustomPasswordField: React.FC<IField> = ({ input, type, placeholder
                 }
             </div>
         </div>
-
-        <div style={{
-            margin: "10px"
-        }}>
-
+        <div
+            className={styles.field_error_info}>
             {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
         </div>
     </div>
 }
 
-const styles = {
-    zIndex: 0,
-    margin: 4,
-    width: 350,
-    height: 80,
-    padding: 0,
-    paddingLeft: 10,
-    backgroundColor: "#F9F3F3",
-    outline: "none",
-    color: "#000",
-    fontSize: "1.125rem",
-    borderRadius: 4,
-    border: "0px solid black"
-}
