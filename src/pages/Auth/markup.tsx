@@ -7,8 +7,10 @@ import { RootState } from '../../redux';
 import Button from '../../components/Button';
 import { checkEmail, length } from '../../helpers/validators';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import {CustomField, CustomPasswordField } from '../../components/form/Field';
+import { CustomField, CustomPasswordField } from '../../components/form/Field';
 import { Link } from 'react-router-dom';
+
+import styles from './styles.module.css'
 
 
 const Form = (props: any) => {
@@ -26,7 +28,7 @@ const Form = (props: any) => {
             visible={visible}
             setVisible={setVisible}
             name={'password'}
-            type={visible ? "text":"password"}
+            type={visible ? "text" : "password"}
             placeholder="Password"
             component={CustomPasswordField}
             validate={[length]}
@@ -42,25 +44,24 @@ const Form = (props: any) => {
 }
 
 const AuthMarkup: React.FC = (props: any) => {
-    const authStatus = useAppSelector( (state: RootState) => state.user.authStatus);
+    const authStatus = useAppSelector((state: RootState) => state.user.authStatus);
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
 
     const submit = (values: any) => {
-        dispatch({type: "user/LOGIN"})
-        if(authStatus)
-            setTimeout( () => navigate('/home'), 1000)
+        dispatch({ type: "user/LOGIN" })
+        if (authStatus)
+            setTimeout(() => navigate('/home'), 1000)
     }
-    return <div style={{
-        marginTop: 100,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: 'center'
-    }}>
+    return <div className={styles.container}>
         <h1>Sign In</h1>
         <SignInForm onSubmit={submit} />
-        <Link style={{marginTop: "30px", textDecoration: "none", color:"black"}} to='/register'>Don't have an account?</Link>
+        <Link
+            className={styles.link}
+            to='/register'
+        >
+            Don't have an account?
+        </Link>
 
     </div>
 }
