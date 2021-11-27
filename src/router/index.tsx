@@ -6,6 +6,7 @@ import AuthMarkup from '../pages/Auth/markup'
 import RegisterMarkup from '../pages/Register'
 import HomeContainer from '../pages/Home/container'
 import PopUpContainer from '../pages/PopUp/container'
+import WelcomeScreen from '../pages/WelcomeScreen'
 
 const Router = () => {
     return <>
@@ -14,7 +15,9 @@ const Router = () => {
             <Route path="/auth" element={<AuthMarkup />} />
             <Route path="/register" element={<RegisterMarkup />} />
             <Route path="/items/:id" element={<PopUpContainer animate={true} />} />
-            <Route path="/" element={<Navigate to="/home" />} />
+            <Route path="/welcome" element={<WelcomeScreen />} />
+
+            <Route path="/" element={<Navigate to="/welcome" />} />
         </Routes>
     </>
 }
