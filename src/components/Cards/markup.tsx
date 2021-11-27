@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import JsonData from '../../data/imdb.json'
-
 import Card from './Card'
 
 
 
 const CardsMarkup: React.FC = () => {
+    
+    console.log(JsonData.length/25)
+
     return <div style={{
         display: "flex",
         justifyContent: "center",
@@ -29,6 +31,7 @@ const CardsMarkup: React.FC = () => {
                     rating={el.imdbrating}
                 />
             )}
+
         </div>
 
     </div>

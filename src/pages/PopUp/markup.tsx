@@ -11,7 +11,7 @@ const PopUpMarkup: React.FC<IPopUp> = ({ animate }) => {
     const params = useParams()
     const navigate = useNavigate()
 
-    const { title, poster, writer, actors, imdbrating } = JsonData.filter(el => el.id === params.id)[0]
+    const { title, poster, writer, actors, imdbrating, plot } = JsonData.filter(el => el.id === params.id)[0]
 
     return <div style={styles.container}>
         <div>
@@ -24,14 +24,13 @@ const PopUpMarkup: React.FC<IPopUp> = ({ animate }) => {
         </div>
         <div style={styles.details}>
             <h1>{title}</h1>
-            <span>Writer: {writer}</span>
-            <span>Actors: {actors}</span>
-            <span>Rating: {imdbrating}</span>
+            <h6 style={{ width: "400px", textAlign: "start", fontSize: "14px" }}>{plot}</h6>
+            <span style={styles.detailsRaiting}>Rating: {imdbrating}</span>
+            <span style={styles.detailsWriter}>Writer: {writer}</span>
+            <span style={styles.detailsActors}>Actors: {actors}</span>
         </div>
-        <div style={styles.iconWrapper}>
-            <i style={styles.getBackArrow}
-                onClick={() => navigate(-1)}
-            >
+        <div onClick={() => navigate(-1)} style={styles.iconWrapper}>
+            <i style={styles.getBackArrow}>
                 <ArrowBackIcon />
             </i>
         </div>
@@ -47,7 +46,7 @@ const styles = {
         position: "relative" as "relative",
         width: "1000px",
         height: "600px",
-        backgroundColor: "red",
+        backgroundColor: "#000",
         margin: "0 auto",
         marginTop: "100px",
         color: "white"
@@ -61,10 +60,6 @@ const styles = {
         flexDirection: "column" as "column"
     },
     getBackArrow: {
-
-        // position: "absolute" as "absolute",
-        // top: "30px",
-        // left: "30px",
         opacity: 1,
         color: "white",
     },
@@ -81,5 +76,17 @@ const styles = {
         backgroundColor: "gray",
         // opacity: 0.5,
         borderRadius: 4
+    },
+    detailsRaiting: {
+        marginTop: "20px",
+        fontSize: "36px"
+    },
+    detailsWriter: {
+        marginTop: "20px",
+        // textAlign: "center" as "center",
+        // fontSize: "18px"
+    },
+    detailsActors: {
+        marginTop: "5px"
     }
 }

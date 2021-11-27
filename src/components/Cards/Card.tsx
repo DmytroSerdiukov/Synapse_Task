@@ -8,8 +8,8 @@ interface ICard {
     genre: string
     title: string,
     poster: string,
+    rating: string,
     director: string,
-    rating: string
 }
 
 const Card: React.FC<ICard> = (
@@ -26,7 +26,7 @@ const Card: React.FC<ICard> = (
             display: "flex",
             position: "relative",
             flexDirection: "column",
-            justifyContent: 'center',
+            justifyContent: 'space-around',
             width: "350px",
             height: "450px",
             backgroundColor: "black",
@@ -40,17 +40,19 @@ const Card: React.FC<ICard> = (
             top: "10px",
             left: "10px",
             zIndex: 8
-        }}>{rate < 8 ? <ThumbDownIcon sx={{ fontSize: "40px" }} /> : null}</div>
+        }}>{rate < 8 ? <ThumbDownIcon sx={{ fontSize: "40px", backgroundColor: "red" }} /> : null}</div>
         <div>
             <span style={{
                 paddingLeft: "10px",
                 textAlign: "center",
                 position: "absolute",
+                top: "55px",
                 // backgroundColor: "yellow",
                 // bottom: "5px",
                 fontSize: "28px",
                 fontWeight: "500",
                 zIndex: 10,
+                
             }}>{title}</span>
             <img style={{
                 zIndex: 0
