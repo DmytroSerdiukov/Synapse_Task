@@ -14,7 +14,7 @@ const Router = () => {
             <Route path="/home" element={<HomeContainer />}/>
             <Route path="/auth" element={<AuthMarkup />} />
             <Route path="/register" element={<RegisterMarkup />} />
-            <Route path="/items/:id" element={<PopUpContainer animate={true} />} />
+            <Route path="/items/:id" element={<PopUpContainer />} />
             <Route path="/welcome" element={<WelcomeScreen />} />
 
             <Route path="/" element={<Navigate to="/welcome" />} />

@@ -1,0 +1,59 @@
+.container {
+    display: flex;
+    position: relative;
+    width: 1000px;
+    height: 600px;
+    background-color: #000;
+    margin: 0 auto;
+    margin-top: 100px;
+    color: white
+}
+
+.details {
+    padding-top: 30px;
+    padding-left: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.getBackArrow {
+    opacity: 1;
+    color: white;
+}
+
+.iconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    width: 40px;
+    height: 30px;
+    padding: 10px;
+    background-color: gray;
+    border-radius: 4px
+}
+
+.plot {
+    width: 400px;
+    text-align: start;
+    font-size: 18px;
+}
+
+.detailsRaiting {
+    margin-top: 20px;
+    font-size: 36px
+}
+
+.detailsWriter {
+    margin-top: 20px;
+    text-align: start;
+    font-size: 18px;
+}
+
+.detailsActors {
+    margin-top: 5px
+}
