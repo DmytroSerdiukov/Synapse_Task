@@ -1,26 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import Button from '../../components/Button'
-
 import { useNavigate } from 'react-router'
+
+import { RootState } from '../../redux'
+import Button from '../../components/Button'
 import Movies from '../../components/Carousel'
 import { useAppSelector } from '../../redux/hooks'
-import { RootState } from '../../redux'
 import CardsContainer from '../../components/Cards/container'
 
+import styles from './styles.module.css'
 
 const LoggedInBar = () => {
     const user = useAppSelector( (state: RootState) => state.user.user);
 
-    return <div style={{
-        padding: "15px",
-        backgroundColor: "black",
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "flex-end",
-        paddingRight: "50px",
-        color: "white",
-        fontSize: "1.125rem"
-    }}>
+    return <div className={styles.container}>
         Hello, {user === "" ? 'guest' : user}
     </div>
 }
@@ -28,14 +20,7 @@ const LoggedInBar = () => {
 const UnloggedInBar = () => {
     const navigate = useNavigate()
 
-    return <div style={{
-        padding: "15px",
-        backgroundColor: "black",
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "flex-end",
-        paddingRight: "50px"
-    }}>
+    return <div className={styles.container}>
         <Button
             margin={"0px 5px"}
             width={100}
