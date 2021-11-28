@@ -1,17 +1,15 @@
-
-
 import React, { useState } from 'react'
 
-import { Field, reduxForm } from 'redux-form';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router';
+import { Field, reduxForm } from 'redux-form';
 
 import Button from '../../components/Button';
+import { useAppDispatch } from '../../redux/hooks';
 import { checkEmail, checkName, length } from '../../helpers/validators';
 import { CustomField, CustomPasswordField } from '../../components/form/Field';
-import { Link } from 'react-router-dom';
-import { useAppDispatch } from '../../redux/hooks';
-import { userInfo } from 'os';
 
+import styles from './styles.module.css'
 
 const Form = (props: any) => {
     const [visible, setVisible] = useState(false)
@@ -47,7 +45,6 @@ const Form = (props: any) => {
             backgroundColor={"#5897FC"}
             title="Sign In"
         />
-
     </form>
 }
 
@@ -56,23 +53,20 @@ const RegisterMarkup: React.FC = () => {
     const dispatch = useAppDispatch()
 
     const submit = (values: any) => {
-        console.log(values)
-        dispatch({type: 'user/SET_USER', payload: values.name})
-        dispatch({type: 'user/LOGIN'})    
+        dispatch({ type: 'user/SET_USER', payload: values.name })
+        dispatch({ type: 'user/LOGIN' })
         setTimeout(() => navigate('/home'), 1500)
     }
 
-    return <div style={{
-        marginTop: 100,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: 'center'
-    }}>
+    return <div className={styles.container}>
         <h1>Sign Up</h1>
         <SignUpForm onSubmit={submit} />
-        <Link style={{marginTop: "30px", textDecoration: "none", color:"black"}} to='/auth'>Already have an account?</Link>
-
+        <Link
+            className={styles.link}
+            to='/auth'
+        >
+            Already have an account?
+        </Link>
     </div>
 }
 
