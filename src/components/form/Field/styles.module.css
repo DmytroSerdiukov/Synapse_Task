@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* width: 350px; */
 }
 
 .input {
@@ -13,7 +12,7 @@
     height: 80px;
     padding: 0px;
     padding-left: 10px;
-    background-color: #F9F3F3;
+    background-color: #dfd9d9;
     outline: none;
     color: #000;
     font-size: 1.125rem;
