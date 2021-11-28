@@ -2,6 +2,8 @@ import React from 'react'
 import { useNavigate } from 'react-router'
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 
+import styles from './card.module.css'
+
 interface ICard {
     id: string,
     year: string,
@@ -22,54 +24,21 @@ const Card: React.FC<ICard> = (
 
     return <div
         onClick={() => navigate(`/items/${id}`)}
-        style={{
-            display: "flex",
-            position: "relative",
-            flexDirection: "column",
-            justifyContent: 'space-around',
-            width: "350px",
-            height: "450px",
-            backgroundColor: "black",
-            margin: "10px",
-            color: "#fff",
-            zIndex: 0,
-        }}>
-
-        <div style={{
-            position: "absolute",
-            top: "10px",
-            left: "10px",
-            zIndex: 8
-        }}>{rate < 8 ? <ThumbDownIcon sx={{ fontSize: "40px", backgroundColor: "red" }} /> : null}</div>
+        className={styles.container}
+    >
+        <div className={styles.rate}>
+            {rate < 8 ? <ThumbDownIcon sx={{ fontSize: "40px", backgroundColor: "red" }} /> : null}
+        </div>
         <div>
-            <span style={{
-                paddingLeft: "10px",
-                textAlign: "center",
-                position: "absolute",
-                top: "55px",
-                // backgroundColor: "yellow",
-                // bottom: "5px",
-                fontSize: "28px",
-                fontWeight: "500",
-                zIndex: 10,
-                
-            }}>{title}</span>
-            <img style={{
-                zIndex: 0
-            }} width="350px" height="350px" src={poster} alt="poster" />
-
-
+            <span className={styles.card_title}>{title}</span>
+            <img width="350px" height="350px" src={poster} alt="poster" />
         </div>
 
-        <div style={{
-            display: "flex",
-            flexDirection: "column"
-        }}>
+        <div className={styles.card_details}>
             <span>Genre: {genre}</span>
             <span>Year: {year}</span>
             <span>Director: {director}</span>
         </div>
-
     </div>
 }
 
