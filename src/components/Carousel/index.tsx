@@ -1,7 +1,9 @@
-import JsonData from '../../data/imdb.json'
 import React from 'react'
 import { useNavigate } from 'react-router'
 
+import JsonData from '../../data/imdb.json'
+
+import styles from './index.module.css'
 
 interface IMovie {
     id: string,
@@ -13,38 +15,22 @@ const Movie: React.FC<IMovie> = ({ id, title, poster }) => {
     const navigate = useNavigate()
     return <div
         onClick={() => navigate(`/items/${id}`)}
-        style={{
-            position: "relative",
-            width: "350px",
-            height: "350px",
-            background: "red",
-            margin: "10px"
-        }}>
-            <div>
-                <img
-                    width="350px"
-                    height="350px"
-                    src={poster}
-                    alt="poster"
-                />
-            </div>
-            <h1 style={{
-                position: "absolute",
-                bottom: "10px",
-                color: "white",
-                textAlign: "center"
-            }}>{title}</h1>
+        className={styles.card_container}>
+        <div>
+            <img
+                width="350px"
+                height="350px"
+                src={poster}
+                alt="poster"
+            />
+        </div>
+        <h1 className={styles.card_title}>{title}</h1>
     </div>
 }
 
 
 const Movies: React.FC = () => {
-    return < div style={{
-        display: "flex",
-        marginTop: "50px",
-        justifyContent: "center",
-        flexDirection: "row",
-    }}>
+    return <div className={styles.container}>
         {
             JsonData.slice(JsonData.length - 3, JsonData.length).map((el, i) =>
                 <Movie
