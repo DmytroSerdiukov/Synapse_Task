@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.card_list {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 1000px;
+    flex-wrap: wrap;
+}

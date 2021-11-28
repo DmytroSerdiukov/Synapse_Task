@@ -2,23 +2,15 @@ import React, { useState } from 'react'
 import JsonData from '../../data/imdb.json'
 import Card from './Card'
 
-
+import styles from './index.module.css'
 
 const CardsMarkup: React.FC = () => {
     
     console.log(JsonData.length/25)
 
-    return <div style={{
-        display: "flex",
-        justifyContent: "center",
-    }}>
-        <div style={{
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "row",
-            width: "1000px",
-            flexWrap: "wrap",
-        }}>
+    return <div 
+    className={styles.container}>
+        <div className={styles.card_list}>
             {JsonData.map((el: any, i: any) =>
                 <Card
                     key={i}
