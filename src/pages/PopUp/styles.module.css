@@ -57,3 +57,14 @@
 .detailsActors {
     margin-top: 5px
 }
+
+@media screen and (max-width: 800px) {
+    .container {
+        flex-direction: column;
+        height: 1100px;
+    }
+    .details {
+        justify-content: center;
+        align-items: center;
+    }
+}
