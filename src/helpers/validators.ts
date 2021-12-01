@@ -10,9 +10,11 @@ export const length = (value: string) => {
     if (!value)
         return "Password is required"
     else if (value && value.length < 6)
-        return "Password is short"
+        return "Password length have to be more or equal to 6 symbols"
+    else if (value && value.length > 15)
+        return "Password length have to be less than 15 symbols"
     else if (!regex.test(value))
-        return "Password have to consist at least one big, one number, one special symbol"
+        return "Password have to consist at least one big, one number, one special symbol and length from 6 to 15"
 }
 
 export const checkEmail = (value: string) => {
