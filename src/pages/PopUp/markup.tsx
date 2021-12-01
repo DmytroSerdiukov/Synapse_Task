@@ -17,8 +17,9 @@ const PopUpMarkup: React.FC = () => {
     return <div className={styles.container}>
         <div>
             <img
-                width="450px"
-                height="600px"
+                className={styles.image}
+                // width="450px"
+                // height="600px"
                 src={poster}
                 alt="poster"
             />

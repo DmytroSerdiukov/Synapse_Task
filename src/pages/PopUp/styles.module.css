@@ -58,6 +58,11 @@
     margin-top: 5px
 }
 
+.image {
+    width: 450px;
+    height: 600px;
+}
+
 @media screen and (max-width: 800px) {
     .container {
         flex-direction: column;
@@ -68,13 +73,14 @@
     .details {
         justify-content: center;
         align-items: center;
+        padding: 0;
     }
 }
 
 @media screen and (max-width: 400px) {
     .container {
         flex-direction: column;
-        width: 640px;
+        width: 400px;
         /* height: 800px; */
         margin: 0;
         height: 1100px;
@@ -82,5 +88,10 @@
     .details {
         justify-content: center;
         align-items: center;
+        padding: 0;
+    }
+    .image {
+        width: 400px;
+        height: 600px;
     }
 }
