@@ -61,7 +61,22 @@
 @media screen and (max-width: 800px) {
     .container {
         flex-direction: column;
+        width: 800px;
         height: 1100px;
+        margin: 0;
+    }
+    .details {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .container {
+        flex-direction: column;
+        width: 640px;
+        /* height: 800px; */
+        margin: 0;
     }
     .details {
         justify-content: center;
