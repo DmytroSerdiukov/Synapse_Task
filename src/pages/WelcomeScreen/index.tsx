@@ -30,7 +30,7 @@ const WelcomeScreen: React.FC = () => {
                 width={350}
                 height={80}
                 backgroundColor={"#5897FC"}
-                title="Sign In"
+                title="Sign Up"
                 callback={() => navigate('/register')}
             />
         </div>

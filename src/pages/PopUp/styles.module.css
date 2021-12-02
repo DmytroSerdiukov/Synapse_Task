@@ -66,6 +66,8 @@
 @media screen and (max-width: 800px) {
     .container {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 800px;
         height: 1100px;
         margin: 0;
@@ -77,15 +79,18 @@
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 600px) {
     .container {
         flex-direction: column;
-        width: 400px;
-        /* height: 800px; */
+        justify-content: center;
+        align-items: center;
+        width: 414px;
+        height: 1200px;
         margin: 0;
         height: 1100px;
     }
     .details {
+        width: 300px;
         justify-content: center;
         align-items: center;
         padding: 0;
@@ -93,5 +98,10 @@
     .image {
         width: 400px;
         height: 600px;
+    }
+    .plot {
+        width: 400px;
+        text-align: center;
+        font-size: 18px;
     }
 }
