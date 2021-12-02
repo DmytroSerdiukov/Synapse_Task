@@ -1,7 +1,7 @@
 # Synapse Test Task
 ## Hope you enjoy! ^_^
 
-[You can interact with app by click this text](https://61a7ed42fd023a9fd4461ef9--agitated-sinoussi-72334e.netlify.app/)
+[You can interact with app by click this text](https://synapse-test-task.netlify.app)
 
 ## Available Scripts
 
